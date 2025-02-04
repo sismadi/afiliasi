@@ -19,7 +19,8 @@
   * { box-sizing: border-box; }
   html {
   font-size: 62.5%;
-  overflow-x: hidden; }
+  overflow-x: hidden;   scroll-behavior: smooth;
+}
 
   body {
   /* background-image: var(--bgimg); */
