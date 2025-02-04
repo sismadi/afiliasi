@@ -474,7 +474,7 @@ var {model}=img;
 arr=model[id]
 // log(arr)
 
-out= `<svg id="${id}"  height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet">`;
+out= `<svg id="${id}"  class="svgimgs" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet">`;
 
 // out+=img.model.gradient;
 for(i in arr){
