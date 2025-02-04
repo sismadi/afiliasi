@@ -327,6 +327,31 @@
   }
 
 
+
+  .gButton { display: flex; flex-wrap: wrap; flex-direction: row;}
+  .button, button {
+  color:white;
+  background:var(--pColor);
+  padding:8px; margin-left:5px; margin-bottom: 5px;
+  border-radius:5px; cursor:pointer;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  transition: background-color 1s ease-out 100ms;
+  text-shadow: 2px 2px #000;
+  transition: 0.5s ease;
+  justify-content: center; /* Tambahkan ini untuk memastikan konten tombol di tengah secara horizontal */
+  text-align: center; /* Untuk memastikan teks di tengah jika ada elemen inline di dalam */
+
+
+  }
+
+  .button:hover, button:hover {
+  box-shadow: 0 0 5px var(--pLightColor);
+  background-image: linear-gradient(var(--pColor), var(--pLightColor),var(--pColor),var(--pColor));
+  }
+
+
   .center{ text-align: center;}
 
 
@@ -644,12 +669,12 @@ background-position: 560px 0px;
   .footer1 { padding-top: 20px;}
 
 
-  .svgimgs{ height: 600px; width: auto; stroke :none;}
 
 
   .header,.header ul { background-color: var(--pLightColor1); }
 
   .svgimgs{ height: 600px; width: auto; stroke :none;}
+  .svgimgs svg{ height: 600px; width: auto; stroke :none;  }
 
 
   .svg-man g:nth-child(1),
@@ -658,9 +683,13 @@ background-position: 560px 0px;
   .svg-gundukan g:nth-child(1) { display:none;}
 
   /* .svg-pohon2 g:nth-child(1) { fill: var(--pLightColor1);transform: translate(22px,-5px) scale(1.2) ;} */
-  .svg-pohon2 g:nth-child(2) { fill: var(--pLightColor2);transform: translate(22px,-5px) scale(1.2) ;}
+
+  .svg-pohon2 g:nth-child(2) { fill: var(--pLightColor2);transform: translate(22px,-5px) scale(1.2) ; }
   .svg-pohon2 g:nth-child(3) { fill: var(--pLightColor3);transform: scale(1.5) translate(0px,-7px);}
+
   .svg-gundukan g:nth-child(2) { fill: var(--pDarkColor); transform: scale(2.2) translate(0px,-10px); }
+
+
 
   #features #womandesign g:nth-child(1) { display: none; fill: var(--pLightColor2); transform: scale(1.2) }
   #features #manandroid g:nth-child(1) { display: none;  fill: var(--pLightColor2); transform: scale(1.2) }
@@ -764,3 +793,69 @@ background-position: 560px 0px;
     from {-webkit-transform: translateX(-400px);}
     to {-webkit-transform: translateX(1350px);}
   }
+
+
+
+  /* SVG */
+  svg {
+  stroke:white; fill:none; height: 25px; width:25px;
+  }
+  .svg, [class*="bi-"] {
+  display:inline-block; height: 25px; width: 25px; padding: 0; min-width: 25px;
+  color: black;
+  stroke-width:1;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+  stroke:white;
+  }
+  [class*="bi-"]:hover { stroke:var(--pLightColor);}
+
+
+  /* svg path{ fill:url('#gradient');} */
+
+  #gradient stop:nth-child(1) { stop-color: var(--pLightColor);}
+  #gradient stop:nth-child(2) { stop-color: var(--pColor);}
+
+  #gradient1 stop:nth-child(1) { stop-color: var(--pColor);}
+  #gradient1 stop:nth-child(2) { stop-color: var(--pDarkColor);}
+
+  .svgicon path{ fill:url('#gradient');}
+
+  svg { filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)); }
+
+  svg:hover path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  pointer-events: none;
+  animation: animateDash 3s linear forwards infinite;
+  }
+  @keyframes animateDash { to { stroke-dashoffset: 0; } }
+
+
+  .show {display: block;}
+  .hide {display: none;}
+
+
+  .modal { background:#fefefe;
+  width:80%; margin:auto; margin-top:70px; padding:20px; border:1px solid #ddd;
+  position:relative;
+  z-index: 10;
+  overflow-wrap: break-word;
+  }
+  .modal .info{text-align: center; width: 100%; padding: 10px;  }
+  .shadow, .modal {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.01);
+  border-radius:8px;
+  border: 1px solid #ddd;
+  /* margin: auto; */
+  padding: 10px;
+  margin-bottom: 5px; background-color:#fff;
+  }
+
+  .depan { background:rgb(0, 0, 0);
+  background:rgba(0, 0, 0, 0.4); height:100%; width:100%; position:fixed; top:0; left:0;
+  overflow:auto; z-index: 99;
+  }
+
+ 
