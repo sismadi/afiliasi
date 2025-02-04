@@ -11,15 +11,21 @@ ref={
   setURL:function(arr){ window.open('?m='+arr,'_self');},
 
   getRef:function(id) {
-    res=ref.getls('ref');
-if(ref){ afi=JSON.parse(res);}
-res=`https://sismadi.co.id/pid=${id}&ref=${afi.kode}`
+res=ref.getls('ref');
+if(res){ afi=JSON.parse(res);
+res=`https://sismadi.co.id/pid=${id}&ref=${afi.kode}`;
+}
+else { res=`anda belum punya kode ref`;}
+
 ref.modal(res)
   },
   getAfi:function() {
-    res=ref.getls('ref');
-if(ref){ afi=JSON.parse(res);}
-res=`http://localhost/web/?ref=${afi.kode}`
+res=ref.getls('ref');
+
+if(res){ afi=JSON.parse(res);
+  res=`https://afiliasi.piawai.id/web/?ref=${afi.kode}`;
+}
+else { res=`anda belum punya kode ref`;}
 
 ref.modal(res)
   },
