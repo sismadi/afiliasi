@@ -115,8 +115,10 @@ view:{
    signup:function(arr){
    var {css,data,isi}=web.model.signup;
    res=ref.getls('ref');
-   afi=JSON.parse(res);
-   log(afi.kode)
+   if(res){
+          afi=JSON.parse(res);
+          log(afi.kode)
+   }
 
 
    out=`<div class="row center artikel">
