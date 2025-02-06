@@ -1,0 +1,62 @@
+<!-- Elemen HTML dengan id "content" yang akan digunakan untuk menampilkan daftar data -->
+<div id="content"> </div>
+
+<script>
+// Fungsi log untuk mencetak output ke console dengan binding ke window.console
+log = console.log.bind(window.console);
+
+// Fungsi untuk mengambil elemen berdasarkan ID
+gebi = function(id) { return document.getElementById(id); }
+
+doc = {
+    // Model untuk menyimpan data
+    model: {
+        web: {
+            id: 1,
+            css: 'col-1-1',
+            data: [ // Data awal yang akan diganti dengan data dari 'data.json'
+                { id: 1, nama: 'satu' },
+                { id: 2, nama: 'dua' },
+                { id: 3, nama: 'tiga' }
+            ]
+        },
+    },
+
+    // View bertanggung jawab untuk merender tampilan
+    view: {
+        web: function(arr) {
+            let out = `<ul>`; // Membuat daftar tidak berurutan (unordered list)
+            for (let i in arr) {
+                out += `<li><a href='${arr[i].id}'>${arr[i].nama}</a></li>`; // Menambahkan setiap item dalam data ke dalam list
+            }
+            out += `</ul>`; // Menutup tag <ul>
+            return out; // Mengembalikan HTML yang dihasilkan
+        },
+    },
+
+    // Controller untuk menangani logika tampilan berdasarkan data di model
+    controller: {
+        web: function() {
+            var { data } = doc.model.web; // Mengambil data dari model
+            gebi('content').innerHTML = doc.view.web(data); // Memasukkan tampilan yang dihasilkan ke elemen dengan id "content"
+        },
+    },
+
+    // Service bertanggung jawab untuk mengambil data dari file JSON eksternal
+    service: {
+        web: function() {
+            fetch('data.json') // Mengambil data dari file 'data.json'
+            .then(response => response.json()) // Mengubah response menjadi objek JSON
+            .then(json => {
+                doc.model.web = json; // Menyimpan data JSON ke dalam model
+                doc.controller.web(); // Memperbarui tampilan dengan data yang baru
+            })
+            .catch(error => console.error('Error fetching data:', error)); // Menangkap dan menampilkan error jika terjadi
+        },
+    }
+};
+
+// Memanggil service untuk mengambil data dari JSON dan memperbarui tampilan
+doc.controller.web();
+// doc.service.web();
+</script>

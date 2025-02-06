@@ -417,6 +417,7 @@ return out;
 
 features:function(arr){
 var {css,data}=web.model.features;
+
 out=`<div class="row center">
 <div class="center">
 <b> features Our Awesome Works</b>
@@ -428,14 +429,14 @@ out+=`
 
 <div class="row">
 <div class="col-1-2 center">
-<div class="center float-right artikel" >`;
+<div class="center artikel" >`;
 if(val.img){ out+=this.img(); } else {out+=this.des();}
 
 out+=`
 </div>
 </div>
 <div class="col-1-2 center">
-<div class="center float-left artikel"   >`;
+<div class="center artikel"   >`;
 if(val.img){ out+=this.des(); } else {out+=this.img();}
 out+=`</div></div></div>`;
 }

@@ -36,6 +36,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path id='pathws' d='M2 7 4 6 4 16 12 20 18 17 10 13 10 10 12 11 12 12 22 17 12 22 2 17 2 7M6 5 8 4 8 14 14 17 12 18 6 15 6 5M10 3 12 2 22 7 22 10 20 9 20 8 12 4 12 7 22 12 22 15 20 14 20 13 10 8 10 3' /></svg>" type="image/svg+xml">
 <!-- <link rel="stylesheet" type="text/css" href="donat/donat.css" async> -->
+<link rel="stylesheet" type="text/css" href="web.css" async>
 <link rel="stylesheet" type="text/css" href="style.css" async>
 </head>
 <body>
@@ -48,10 +49,11 @@
  <i class="di-menu"></i>
   </div>
 
-  <button class="button" onclick="pilihwarna1('120', '100%', '50%')"> Hijau</button>
-  <button class="button" onclick="pilihwarna1('28', '71%', '57%')"> donat </button>
-  <button class="button" onclick="pilihwarna1('213', '100%', '22.5%')"> biru </button>
-    <button class="button" onclick="pilihwarna1('0', '100%', '25%')"> Maroon </button>
+
+  <button class="button" onclick="gantiwarna('120', '100%', '50%')"> Hijau</button>
+  <button class="button" onclick="gantiwarna('28', '71%', '57%')"> donat </button>
+  <button class="button" onclick="gantiwarna('213', '100%', '22.5%')"> biru </button>
+  <button class="button" onclick="gantiwarna('0', '100%', '25%')"> Maroon </button>
 
 
 </div>
@@ -92,14 +94,6 @@ Made with <svg style="width:24;height:24;">
     <stop stop-color="red" offset="0%"/>
     <stop stop-color="#cfecf7" offset="100%"/>
     </linearGradient>
-  </defs>
-      <defs>
-
-    <linearGradient id="gradient1" x1="50%" y1="-2.48949813e-15%" x2="50%" y2="100%" >
-    <stop stop-color="blue" offset="0%"/>
-    <stop stop-color="red" offset="100%"/>
-    </linearGradient>
-
   </defs>
 
 <path id="pathws" fill="url(#gradient)" d="M12 10C7 5 4 14 12 17 20 14 17 5 12 10M12 22A8 8 0 0112 2 8 8 0 0112 22Z"></path>
