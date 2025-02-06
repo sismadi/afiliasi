@@ -99,7 +99,8 @@
       object-fit: contain;
   }
 
-  
+
+
   .tabs {
       display: flex;
       flex-direction: column;

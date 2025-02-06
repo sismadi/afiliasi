@@ -28,11 +28,15 @@
 <div class="collapse-icon">
 <i class="di-menu"></i>
 </div>
-<button class="button" onclick="gantiwarna('gradient1')"> gradient1 </button>
-<button class="button" onclick="gantiwarna('gradient2')"> gradient2 </button>
-<button class="button" onclick="gantiwarna('gradient3')"> gradient3 </button>
-<button class="button" onclick="gantiwarna('gradient4')"> gradient4 </button>
-<button class="button" onclick="gantiwarna('gradient5')"> gradient5 </button>
+<!-- dwarna={ph:'213', ps:'100%', pl:'22.5%'} -->
+
+<button class="button" onclick="gantiwarna('213','71%','57%')"> biru </button>
+<button class="button" onclick="gantiwarna('28','100%','22.5%')"> donat </button>
+<button class="button" onclick="gantiwarna('120', '100%', '50%')"> Hijau</button>
+<button class="button" onclick="gantiwarna('28', '71%', '57%')"> donat </button>
+<button class="button" onclick="gantiwarna('213', '100%', '22.5%')"> biru </button>
+<button class="button" onclick="gantiwarna('0', '100%', '25%')"> Maroon </button>
+
   </div>
 
 <div class="content" id="content"></div>
@@ -58,8 +62,13 @@ Made with <svg style="width:24;height:24;">
 <script type="text/javascript" src="img.js"></script>
 
 <script type="text/javascript" >
-donats('ws')
-img.controller.gallery('content');
+
+// gantiwarna('213','71%','57%');
+
+
+// donats('ws')
+// img.controller.gallery('content');
+
 </script>
 </body>
 </html>

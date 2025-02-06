@@ -4,44 +4,24 @@ close=function(id){var z=gebi(id); z.className=z.className.replace('show', 'hide
 open=function(id) {var z=gebi(id); z.className=z.className.replace('hide', 'show');};
 modal=function(id) { gebi('modal').innerHTML=img.view.modal(id);open('modal');tutup=function(){modal(''); close('modal');}};
 
-dwarna={ph:'213', ps:'100%', pl:'22.5%'}
+warnass={
+  gradient1:['#0063DB','#003E8A','#0063DB','#c4b3a4','#cfecf7','#fee0bc','#000'],
+  gradient2:['#ccd5ae','#e9edc9','#fefae0','#faedcd','#d4a373','#fee0bc','#000'],
+  gradient3:['#fe218b','#fed700','#21b0fe','#ead7c3','#black','#fee0bc','#000'],
+  gradient4:['#26547c','#ef476f','#ffd166','#ead7c3','#black','#fee0bc','#000'],
+  gradient5:['#540d6e','#ffb400','#00a6ed','#ead7c3','#black','#fee0bc','#000'],
+}
 
+warnas=warnass.gradient1;
 
-gantiwarna=function(ph,ps,pl){
-let li = parseInt(pl.replace('%', ''));
-
-warna=[]
-warna[0]=`hsl(${ph},${ps},${pl})`
-warna[1]=`hsl(${ph},${ps},${li-15}%)`
-warna[2]=`hsl(${ph},${ps},${li+15}%)`
-warna[4]=`hsl(${ph},${ps},${li+30}%)`
-warna[3]=`hsl(${ph},${ps},${li+45}%)`
-
-warna[5]=`hsl(${26},${90}%,${89}%)`
-warna[6]=`hsl(${0},${0}%,${0}%)`
-
-fill=warna;
-log(fill)
-
-
-const cvgElements = document.querySelectorAll('.svgimgs');
-    // Loop melalui setiap elemen dan ubah warnanya
-    cvgElements.forEach((element, index) => {
-        if (warna[index]) {
-            element.style.fill = warna[index]; // Ubah warna fill SVG
-        }
-    });
-
-
-
+gantiwarna=function(i){
+fill=warnass[i];
 donats('ws')
 img.controller.gallery('content');
 }
 
-
-
 position=[`0,0`,`13, 1`,`-5, 0`];
-
+fill=warnas;
 
 path={
 setting:`M9 12A3 3 0 1015 12 3 3 0 109 12M21 14A1.65 1.65 0 0020 17 2 2 0 0117 20 1.65 1.65 0 0014 21 2 2 0 0110 21 1.65 1.65 0 007 20 2 2 0 014 17 1.65 1.65 0 003 14 2 2 0 013 10 1.65 1.65 0 004 7 2 2 0 017 4 1.65 1.65 0 0010 3 2 2 0 0114 3 1.65 1.65 0 0017 4 2 2 0 0120 7 1.65 1.65 0 0021 10 2 2 0 0121 14Z`,
@@ -129,7 +109,23 @@ model:{
   gradient:`
   <defs>
   <linearGradient id="gradient" x1="100%" y1="0%" x2="0%" y2="100%">
-  <stop id="color-1" stop-color="${warna[0]}" offset="0%" />
+  <stop id="color-1" stop-color="${warnas[0]}" offset="0%" />
+  <stop id="color-2" stop-color="#fff" offset="100%" />
+  </linearGradient>
+  <linearGradient id="gradient1" x1="100%" y1="0%" x2="0%" y2="100%">
+  <stop id="color-1" stop-color="${warnas[1]}" offset="0%" />
+  <stop id="color-2" stop-color="#fff" offset="100%" />
+  </linearGradient>
+  <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+  <stop id="color-1" stop-color="${warnas[2]}" offset="0%" />
+  <stop id="color-2" stop-color="#fff" offset="100%" />
+  </linearGradient>
+  <linearGradient id="gradient3" x1="100%" y1="0%" x2="0%" y2="100%">
+  <stop id="color-1" stop-color="${warnas[3]}" offset="0%" />
+  <stop id="color-2" stop-color="#fff" offset="100%" />
+  </linearGradient>
+  <linearGradient id="gradient4" x1="100%" y1="0%" x2="0%" y2="100%">
+  <stop id="color-1" stop-color="${warnas[4]}" offset="0%" />
   <stop id="color-2" stop-color="#fff" offset="100%" />
   </linearGradient>
   </defs>
@@ -146,9 +142,9 @@ masjid:[
 {position:position[1],fill:fill[5],path:path.masjid1},
 ],
 pohon2:[
-{position:position[1],fill:fill[3],path:path.pohon1},
-{position:position[0],fill:fill[4],path:path.pohon1},
-{position:position[1],fill:fill[1],path:path.pohon1},
+{position:position[1],fill:fill[5],path:path.pohon1},
+{position:position[0],fill:fill[5],path:path.pohon1},
+{position:position[1],fill:fill[5],path:path.pohon1},
 ],
 
 sila2:[
@@ -270,9 +266,12 @@ mansamping:[
 {position:position[0],fill:fill[5],path:path.wajah1},
 
 {position:position[0],fill:fill[1],path:path.manbawah1},
-{position:`-5, 0`,fill:fill[2],path:path.itangan3},
+{position:`-5, 0`,fill:fill[0],path:path.itangan3},
+
 {position:position[0],fill:fill[0],path:path.ibaju4},
-{position:position[0],fill:fill[2],path:path.itangan3},
+
+{position:position[0],fill:fill[0],path:path.itangan3},
+
 {position:`-11, -9`,fill:fill[5],path:path.tangan1},
 {position:`-6, -9`,fill:fill[5],path:path.tangan1},
 
@@ -317,7 +316,7 @@ path:function(arr){
 // fill:url('#gradient');
 out=``;
 for(i in arr){
-out+=`<g  transform="scale(1) translate(${arr[i].position}) " fill="${arr[i].fill}"><path id="baju" d="${arr[i].path}"/></g>`;
+out+=`<g id="gbaju" transform="scale(1) translate(${arr[i].position}) " fill="${arr[i].fill}"><path id="baju" d="${arr[i].path}"/></g>`;
 // out+=`<g id="gbaju"  fill="${arr[i].fill}"><path id="baju" d="${arr[i].path}"/></g>`;
 
 }
@@ -549,5 +548,3 @@ a.dispatchEvent(my_evt);
 //canvas.parentNode.removeChild(canvas);
 }
 }
-
-gantiwarna('213','71%','57%')
